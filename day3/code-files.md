@@ -28,6 +28,6 @@
 
     * I/P from User -- 1st & 2nd point eg : Enter 2 points 
 
-    * Invoke isEqual & display if 1st point & 10th point are having same co ordinates or different
+    * Invoke isEqual & display if 1st point & 2nd point are having same co ordinates or different
 
     * I/P from User -- 1st & 2nd point. Display distance between 2 points.
