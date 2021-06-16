@@ -25,7 +25,6 @@ public class EventOrganizer {
             totalSeats = totalSeatsAvailable.length;
             int lastSeatBooked = 0, seatInput, i;
             boolean exit = false, alreadyPresent=false;
-            String firstName, lastName;
             while (!exit) {
                 try {
                     System.out.println("----------------------MENU------------------");
