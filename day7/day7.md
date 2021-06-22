@@ -122,12 +122,12 @@ public static Date validateDate(String date)throws ParseException, CustomerHandl
 Class equivalent/representation of the primitive type of data are called Wrapper classes. Java Wrapper classes provide a way to use primitive data types ( int , boolean , etc..) as objects.
 
 ## What's need of wrapper classes?
-- To be able to add prim types to growable collection(growable data structure eg -- LinkedList)
+- To be able to add primitive types to growable collection(growable data structure eg -- LinkedList)
 - Wrapper classes contain useful api(eg --- parseInt, parseFloat...., isDigit,isWhiteSpace...).
 
 ## Inheritance Hierarchy of Wrapper Classes:
 
-![image](../additional_resources/wrapper-class-hierarchy.png)  
+![image](./additional_resources/wrapper-class-hierarchy.png)  
 `java.lang.Object` is not part of this hierarchy, but it has been addded as it is the super class of all the classes in Java.  
 
 ## What and how:
@@ -181,7 +181,7 @@ Object o=12345;             //Operations Performed: int -->Integer---?upcasting-
 System.out.println(o.getClass().getName()); // O/P: java.lang.Integer
 
 o=false;                    //Impllicit Statement:  o=new Boolean(false); 
-/* Operations Performed: boolean -->Boolean---?upcasting--->Object. Thus completely acceptible.*/
+							// Operations Performed: boolean -->Boolean--->upcasting--->Object. Thus completely acceptible.
 
 System.out.println(o.getClass().getName()); // O/P: java.lang.Boolean
 ```
@@ -253,11 +253,9 @@ public void fun(int ...a) {
 
 In Java, it is possible to define a class within another class, such classes are known as nested classes. They enable you to logically group classes that are only used in one place, thus this increases the use of encapsulation, and creates more readable and maintainable code.  
 ```java
-class OuterClass
-{
+class OuterClass {
 ...
-    class NestedClass
-    {
+    class NestedClass {
         ...
     }
 }
@@ -271,7 +269,7 @@ class OuterClass
     2. _inner class_ : An inner class is a non-static nested class.  
 
 ## Types of Nested Classes:  
-![image](../additional_resources/nested_classes.jpeg)
+![image](./additional_resources/nested_classes.jpeg)
 
 ## 1. Static Nested Class:
 In the case of normal or regular inner classes, without an outer class object existing, there cannot be an inner class object. i.e., an object of the inner class is always strongly associated with an outer class object. But in the case of static nested class, Without an outer class object existing, there may be a static nested class object. i.e., an object of a static nested class is not strongly associated with the outer class object.  
@@ -286,8 +284,7 @@ Full code showing the use of static nested class:
 /* Java program to demonstrate accessing a static nested class */
 
 // outer class
-class OuterClass
-{
+class OuterClass {
 	// static member
 	static int outer_x = 10;
 	
@@ -298,10 +295,8 @@ class OuterClass
 	private static int outer_private = 30;
 	
 	// static nested class
-	static class StaticNestedClass
-	{
-		void display()
-		{
+	static class StaticNestedClass {
+		void display() {
 			// can access static member of outer class
 			System.out.println("outer_x = " + outer_x);
 			
@@ -316,10 +311,8 @@ class OuterClass
 }
 
 // Driver class
-public class StaticNestedClassDemo
-{
-	public static void main(String[] args)
-	{
+public class StaticNestedClassDemo {
+	public static void main(String[] args) {
 		// accessing a static nested class
 		OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
 		
@@ -358,11 +351,9 @@ class Main {
 ```
 So, the syntax of the inner class is: 
 ```java
-class OuterClass
-{
+class OuterClass {
 ...
-    class NestedClass
-    {
+    class NestedClass {
         ...
     }
 }
@@ -373,7 +364,7 @@ OuterClass outerObject = new OuterClass();
 OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 ```
 
-## Comparison between normal or regular class and static nested class:
+## Comparison between normal or regular inner/nested class and static nested class:
 Normal/Regular inner class | Static nested class
 --- | ---
 Without an outer class object existing, there cannot be an inner class object. That is, the inner class object is always associated with the outer class object. | Without an outer class object existing, there may be a static nested class object. That is, static nested class object is not associated with the outer class object.
@@ -600,11 +591,9 @@ __Explanation:__ The above program causes compilation error because the scope of
 __Syntax:__ The syntax of an anonymous class expression is like the invocation of a constructor, except that there is a class definition contained in a block of code.
 ```java
 // Test can be interface,abstract/concrete class
-Test t = new Test() 
-{
+Test t = new Test() {
    // data members and methods
-   public void test_method() 
-   {
+   public void test_method() {
       ........
       ........
     }   
@@ -613,15 +602,12 @@ Test t = new Test()
 To understand anonymous inner class, let us take a simple program.  
 ```java
 //Java program to demonstrate need for Anonymous Inner class
-interface Age
-{
+interface Age {
 	int x = 21;
 	void getAge();
 }
-class AnonymousDemo
-{
-	public static void main(String[] args)
-	{
+class AnonymouDemo {
+	public static void main(String[] args) {
 		// Myclass is implementation class of Age interface
 		MyClass obj=new MyClass();
 
@@ -631,11 +617,9 @@ class AnonymousDemo
 }
 
 // Myclass implement the methods of Age Interface
-class MyClass implements Age
-{
+class MyClass implements Age {
 	@Override
-	public void getAge()
-	{
+	public void getAge() {
 		// printing the age
 		System.out.print("Age is "+x);
 	}
@@ -680,20 +664,19 @@ class AnonymousDemo
 ```
 __Types of anonymous inner class:__ Based on declaration and behavior, there are 3 types of anonymous Inner classes:
 
-1. __Anonymous Inner class that extends a class:__ We can have an anonymous inner class that extends a class.For example,we know that we can create a thread by extending a Thread class. Suppose we need an immediate thread but we don’t want to create a class that extend Thread class all the time. By the help of this type of Anonymous Inner class we can define a ready thread as follows:
+1. __Anonymous Inner class that extends a class:__ We can have an anonymous inner class that extends a class.For example, we know that we can create a thread by extending a Thread class. Suppose we need an immediate thread but we don’t want to create a class that extend Thread class all the time. By the help of this type of Anonymous Inner class we can define a ready thread as follows:
 ```java
 //Java program to illustrate creating an immediate thread
 //Using Anonymous Inner class that extends a Class
-class MyThread
-{
-	public static void main(String[] args)
-	{
+class MyThread {
+
+	public static void main(String[] args) {
+
 		//Here we are using Anonymous Inner class
 		//that extends a class i.e. Here a Thread class
-		Thread t = new Thread()
-		{
-			public void run()
-			{
+		Thread t = new Thread()	{
+
+			public void run() {
 				System.out.println("Child Thread");
 			}
 		};
@@ -712,20 +695,19 @@ Child Thread
 Main Thread
 ```
 
-2. __Anonymous Inner class that implements a interface:__ We can also have an anonymous inner class that implements an interface.For example, we also know that by implementing Runnable interface we can create a Thread. Here we use anonymous Inner class that implements an interface.
+2. __Anonymous Inner class that implements an interface:__ We can also have an anonymous inner class that implements an interface. For example, we also know that by implementing Runnable interface we can create a Thread. Here we use anonymous Inner class that implements an interface.
 ```java
 //Java program to illustrate defining a thread
 //Using Anonymous Inner class that implements an interface
-class MyThread
-{
-	public static void main(String[] args)
-	{
+class MyThread {
+
+	public static void main(String[] args) {
+
 		//Here we are using Anonymous Inner class
 		//that implements a interface i.e. Here Runnable interface
-		Runnable r = new Runnable()
-		{
-			public void run()
-			{
+		Runnable r = new Runnable()	{
+
+			public void run() {
 				System.out.println("Child Thread");
 			}
 		};
@@ -748,22 +730,21 @@ Main Thread
 ```java
 //Java program to illustrate defining a thread
 //Using Anonymous Inner class that define inside argument
-class MyThread
-{
-	public static void main(String[] args)
-	{
+class MyThread {
+
+	public static void main(String[] args) {
+
 		//Here we are using Anonymous Inner class
 		//that define inside argument, here constructor argument
-		Thread t = new Thread(new Runnable()
-		{
-			public void run()
-			{
+		Thread t = new Thread(new Runnable() {
+
+			public void run() {
+
 				System.out.println("Child Thread");
 			}
 		});
 		
 		t.start();
-		
 		System.out.println("Main Thread");
 	}
 }
@@ -780,7 +761,7 @@ Main Thread
 ### Difference between Normal/Regular class and Anonymous Inner class:
 - A normal class can implement any number of interfaces but anonymous inner class can implement only one interface at a time.  
 - A regular class can extend a class and implement any number of interface simultaneously. But anonymous Inner class can extend a class or can implement an interface but not both at a time.  
-- For regular/normal class, we can write any number of constructors but we cant write any constructor for anonymous Inner class because anonymous class does not have any name and while defining constructor class name and constructor name must be same.  
+- For regular/normal class, we can write any number of constructors but we cant write any constructor for anonymous Inner class because anonymous class does not have any name and while defining a constructor, class name and constructor name must be same.  
 
 ### Accessing Local Variables of the Enclosing Scope, and Declaring and Accessing Members of the Anonymous Class
 Like local classes, anonymous classes can capture variables; they have the same access to local variables of the enclosing scope:
@@ -806,7 +787,7 @@ However, constructors can not be declared in an anonymous class.
 <a name='multi-dimensional_arrays'></a>
 
 Multi-dimensional arrays are nothing but array of references. So the memory picture of that is:  
-![image](../additional_resources/multi_dimensional_array.png)  
+![image](./additional_resources/multi_dimensional_array.png)  
 So accessing and using the dimensional array will be similar to the array of references of array.  
 
 __Declaration:__
@@ -838,4 +819,4 @@ for (int i=0; i<arr.length; i++) {
 ```
 
 __NOTE:__ A utility method to print the contents of a multi-dimensional array is: Arrays.deepToString(). The details of that is:  
-![image](../additional_resources/deepToString.png)
+![image](./additional_resources/deepToString.png)
