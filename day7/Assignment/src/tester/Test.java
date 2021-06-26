@@ -18,7 +18,7 @@ public class Test {
             System.out.print("Enter the size of the array:");
             Customer[] customers = new Customer[sc.nextInt()];
             int counter=0;
-            boolean isPresent = false;
+            boolean isPresent;
 
             while(!exit) {
 
