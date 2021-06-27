@@ -20,16 +20,13 @@ __Declaration of enum in java:__
 Enum declaration can be done outside a Class or inside a Class but not inside a Method.
 ```java
 // A simple enum example where enum is declared outside any class (Note enum keyword instead of class keyword)
-enum Color
-{
+enum Color {
 	RED, GREEN, BLUE;
 }
 
-public class Test
-{
+public class Test {
 	// Driver method
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Color c1 = Color.RED;
 		System.out.println(c1);
 	}
@@ -42,16 +39,13 @@ RED
 
 ```java
 // enum declaration inside a class.
-public class Test
-{
-	enum Color
-	{
+public class Test {
+	enum Color {
 		RED, GREEN, BLUE;
 	}
 
 	// Driver method
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Color c1 = Color.RED;
 		System.out.println(c1);
 	}
@@ -68,8 +62,7 @@ __Important points of enum:__
 - Every enum internally implemented by using Class.  
 ```java
 // internally above enum Color is converted to
-class Color
-{
+class Color {
     public static final Color RED = new Color();
     public static final Color BLUE = new Color();
     public static final Color GREEN = new Color();
@@ -83,29 +76,24 @@ class Color
 import java.util.Scanner;
 
 // An Enum class
-enum Day
-{
+enum Day {
 	SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
 	THURSDAY, FRIDAY, SATURDAY;
 }
 
 // Driver class that contains an object of "day" and
 // main().
-public class Test
-{
+public class Test {
 	Day day;
 
 	// Constructor
-	public Test(Day day)
-	{
+	public Test(Day day) {
 		this.day = day;
 	}
 
 	// Prints a line about Day using switch
-	public void dayIsLike()
-	{
-		switch (day)
-		{
+	public void dayIsLike()	{
+		switch (day) {
 		case MONDAY:
 			System.out.println("Mondays are bad.");
 			break;
@@ -123,8 +111,7 @@ public class Test
 	}
 
 	// Driver method
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		String str = "MONDAY";
 		Test t1 = new Test(Day.valueOf(str));
 		t1.dayIsLike();
@@ -139,13 +126,11 @@ Mondays are bad.
 - We can declare main() method inside enum. Hence we can invoke enum directly from the Command Prompt.  
 ```java
 // A Java program to demonstrate that we can have main() inside enum class.
-enum Color
-{
+enum Color {
 	RED, GREEN, BLUE;
 
 	// Driver method
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Color c1 = Color.RED;
 		System.out.println(c1);
 	}
@@ -156,32 +141,28 @@ Output:
 RED
 ```
 ## Enum and Inheritance:
-- All enums implicitly extend java.lang.Enum class. As a class can only extend one parent in Java, so an enum cannot extend anything else.  
+- All enums implicitly extend `java.lang.Enum` class. As a class can only extend one parent in Java, so an enum cannot extend anything else.  
 - toString() method is overridden in java.lang.Enum class,which returns enum constant name.  
 - enum can implement many interfaces.  
 
 ## values(), ordinal() and valueOf() methods:
-- These methods are present inside java.lang.Enum.  
-- values() method can be used to return all values present inside enum.  
+- These methods are present inside `java.lang.Enum`.  
+- values() method can be used to return all constants present inside enum. It returns an array of enum type containing all the enum constants.  
 - Order is important in enums. By using ordinal() method, each enum constant index can be found, just like array index.  
 - valueOf() method returns the enum constant of the specified string value, if exists.  
 ```java
 // Java program to demonstrate working of values(), ordinal() and valueOf()
-enum Color
-{
+enum Color {
 	RED, GREEN, BLUE;
 }
 
-public class Test
-{
-	public static void main(String[] args)
-	{
+public class Test {
+	public static void main(String[] args) {
 		// Calling values()
 		Color arr[] = Color.values();
 
 		// enum with loop
-		for (Color col : arr)
-		{
+		for (Color col : arr) {
 			// Calling ordinal() to find index
 			// of color.
 			System.out.println(col + " at index "
@@ -216,29 +197,25 @@ RED
 // and concrete methods.
 
 // An enum (Note enum keyword inplace of class keyword)
-enum Color
-{
+enum Color {
 	RED, GREEN, BLUE;
 
 	// enum constructor called separately for each
 	// constant
-	private Color()
-	{
+	private Color() {
 		System.out.println("Constructor called for : " +
 		this.toString());
 	}
 
-	public void colorInfo()
-	{
+	public void colorInfo() {
 		System.out.println("Universal Color");
 	}
 }
 
-public class Test
-{	
+public class Test {	
+	
 	// Driver method
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Color c1 = Color.RED;
 		System.out.println(c1);
 		c1.colorInfo();
@@ -258,8 +235,7 @@ Universal Color
 By default enums have their own string values, we can also assign some custom values to enums. Consider below example for that.  
 Examples:
 ```java
-enum  Fruits
-{
+enum  Fruits {
     APPLE(“RED”), BANANA(“YELLOW”), GRAPES(“GREEN”);
 }
 ```
@@ -270,8 +246,7 @@ Now to use this enum in code, there are some points we have to follow:-
 ```java
 // Java program to demonstrate how values can
 // be assigned to enums.
-enum TrafficSignal
-{
+enum TrafficSignal {
 	// This will call enum constructor with one
 	// String argument
 	RED("STOP"), GREEN("GO"), ORANGE("SLOW DOWN");
@@ -280,29 +255,25 @@ enum TrafficSignal
 	private String action;
 
 	// getter method
-	public String getAction()
-	{
+	public String getAction() {
 		return this.action;
 	}
 
 	// enum constructor - cannot be public or protected
-	private TrafficSignal(String action)
-	{
+	private TrafficSignal(String action) {
 		this.action = action;
 	}
 }
 
 // Driver code
-public class EnumConstructorExample
-{
-	public static void main(String args[])
-	{
+public class EnumConstructorExample {
+	
+	public static void main(String args[]) {
 		// let's print name of each enum and there action
 		// - Enum values() examples
 		TrafficSignal[] signals = TrafficSignal.values();
 
-		for (TrafficSignal signal : signals)
-		{
+		for (TrafficSignal signal : signals) {
 			// use getter method to get the value
 			System.out.println("name : " + signal.name() +
 						" action: " + signal.getAction() );
@@ -321,6 +292,7 @@ name : ORANGE action: SLOW DOWN
 <a name='generics_in_java'></a>
 
 <details><summary>Class notes</summary>
+
 - Available from Java SE 5 onwards.  
 - Represents Parameterized Types.(eg : `ArrayList<Emp>`)  
 - Can Create Generic classes, interfaces, methods and constructors.  
@@ -350,43 +322,49 @@ Generics means parameterized types. The idea is to allow type (Integer, String, 
 An entity such as class, interface, or method that operates on a parameterized type is called generic entity.
 
 ## Why Generics?
-__Object__ is the superclass of all other classes and Object reference can refer to any type object. These features lack type safety. Generics adds that type safety feature. We will discuss that type safety feature in later examples.  
+__Object__ is the superclass of all other classes and Object reference can refer to any type object. These features lack type safety. Generics adds that type safety feature.  
 Generics in Java is similar to templates in C++. For example, classes like HashSet, ArrayList, HashMap, etc use generics very well. There are some fundamental differences between the two approaches to generic types.
 
 ## Generic Class:
-Like C++, we use <> to specify parameter types in generic class creation. To create objects of generic class, we use following syntax.
-```
+Like C++, we use <> to specify parameter types in generic class creation. To create objects of generic class, we use following syntax:
+```java
 // To create an instance of generic class 
 BaseType <Type> obj = new BaseType <Type>()
-
-Note: In Parameter type we can not use primitives like 
-      'int','char' or 'double'.
 ```
+
+__Note:__ In Parameter type we can not use primitives like `int`, `char` or `double`.
+
 
 ```java
 // A Simple Java program to show working of user defined Generic classes
 
 // We use < > to specify Parameter type
-class Test<T>
-{
-	// An object of type T is declared
+class Test<T> {
+	
+	// An reference of type T is declared
 	T obj;
-	Test(T obj) { this.obj = obj; } // constructor
-	public T getObject() { return this.obj; }
+
+	// constructor
+	Test(T obj) { 
+		this.obj = obj; 
+	}
+
+	public T getObject() {
+		return this.obj; 
+	}
 }
 
 // Driver class to test above
-class Main
-{
-	public static void main (String[] args)
-	{
+class Main {
+
+	public static void main (String[] args) {
+
 		// instance of Integer type
 		Test <Integer> iObj = new Test<Integer>(15);
 		System.out.println(iObj.getObject());
 
 		// instance of String type
-		Test <String> sObj =
-						new Test<String>("GeeksForGeeks");
+		Test <String> sObj = new Test<String>("Generic Programming");
 		System.out.println(sObj.getObject());
 	}
 }
@@ -394,75 +372,69 @@ class Main
 Output:
 ```
 15
-GeeksForGeeks
+Generic Programming
 ```
 
 We can also pass multiple Type parameters in Generic classes.
 ```java
-// A Simple Java program to show multiple
-// type parameters in Java Generics
+// A Simple Java program to show multiple type parameters in Java Generics
 
 // We use < > to specify Parameter type
-class Test<T, U>
-{
+class Test<T, U> {
+
 	T obj1; // An object of type T
 	U obj2; // An object of type U
 
 	// constructor
-	Test(T obj1, U obj2)
-	{
+	Test(T obj1, U obj2) {
+
 		this.obj1 = obj1;
 		this.obj2 = obj2;
 	}
 
 	// To print objects of T and U
-	public void print()
-	{
+	public void print()	{
+
 		System.out.println(obj1);
 		System.out.println(obj2);
 	}
 }
 
 // Driver class to test above
-class Main
-{
-	public static void main (String[] args)
-	{
-		Test <String, Integer> obj =
-			new Test<String, Integer>("GfG", 15);
+class Main {
+	
+	public static void main (String[] args) {
 
+		Test <String, Integer> obj = new Test<String, Integer>("Generics Programming", 15);
 		obj.print();
 	}
 }
 ```
 Output:
 ```
-GfG
+Generics Programming
 15
 ```
 
 ## Generic Methods:
-We can also write generic methods that can be called with different types of arguments based on the type of arguments passed to generic method, the compiler handles each method.
+We can also write generic methods that can be called with different types of arguments. Based on the type of arguments passed to generic method, the compiler handles each method.
 ```java
 // A Simple Java program to show working of user defined Generic functions
+class Test {
 
-class Test
-{
 	// A Generic method example
-	static <T> void genericDisplay (T element)
-	{
-		System.out.println(element.getClass().getName() +
-						" = " + element);
+	static <T> void genericDisplay (T element) {
+		System.out.println(element.getClass().getName() + " = " + element);
 	}
 
 	// Driver method
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
+
 		// Calling generic method with Integer argument
 		genericDisplay(11);
 
 		// Calling generic method with String argument
-		genericDisplay("GeeksForGeeks");
+		genericDisplay("Generics Programming");
 
 		// Calling generic method with double argument
 		genericDisplay(1.0);
@@ -472,7 +444,7 @@ class Test
 Output:
 ```
 java.lang.Integer = 11
-java.lang.String = GeeksForGeeks
+java.lang.String = Generics Programming
 java.lang.Double = 1.0
 ```
 
@@ -485,28 +457,32 @@ The above line results in a compile-time error, that can be resolved by using ty
 Consider the following Java code.
 ```java
 // A Simple Java program to show working of user-defined Generic classes
-
 // We use < > to specify Parameter type
-class Test<T>
-{
+class Test<T> {
+	
 	// An object of type T is declared
 	T obj;
-	Test(T obj) { this.obj = obj; } // constructor
-	public T getObject() { return this.obj; }
+
+	// constructor
+	Test(T obj) { 
+		this.obj = obj; 
+	} 
+	public T getObject() { 
+		return this.obj; 
+	}
 }
 
 // Driver class to test above
-class Main
-{
-	public static void main (String[] args)
-	{
-		// instance of Integer type
+class Main {
+
+	public static void main (String[] args) {
+
+		// Instance of Integer type
 		Test <Integer> iObj = new Test<Integer>(15);
 		System.out.println(iObj.getObject());
 
-		// instance of String type
-		Test <String> sObj =
-						new Test<String>("GeeksForGeeks");
+		// Instance of String type
+		Test <String> sObj = new Test<String>("Generics Programming");
 		System.out.println(sObj.getObject());
 		iObj = sObj; //This results an error
 	}
@@ -529,10 +505,10 @@ Programs that uses Generics has got many benefits over non-generic code.
 // generics can cause run time exceptions
 import java.util.*;
 
-class Test
-{
-	public static void main(String[] args)
-	{
+class Test {
+	
+	public static void main(String[] args) {
+		
 		// Creatinga an ArrayList without any type specified
 		ArrayList al = new ArrayList();
 
@@ -593,10 +569,10 @@ Output:
 // We don't need to typecast individual members of ArrayList
 import java.util.*;
 
-class Test
-{
-	public static void main(String[] args)
-	{
+class Test {
+
+	public static void main(String[] args) {
+
 		// Creating a an ArrayList with String specified
 		ArrayList <String> al = new ArrayList<String> ();
 
@@ -609,8 +585,7 @@ class Test
 	}
 }
 ```
-4. Generics promotes code reusability.  
-5. __Implementing generic algorithms:__ By using generics, we can implement algorithms that work on different types of objects and at the same they are type safe too.  
+4. __Implementing generic algorithms:__ By using generics, we can implement algorithms that work on different types of objects and at the same time they are type safe too.  
 
 # Collection Framework in Java:
 <a name='collection_framework'></a>
@@ -622,7 +597,7 @@ The above diagram shows the hierarchy of the collection framework.
 __NOTE:__ The Iterable interface(`java.lang.Iterable<E>`) is not part of the collection interface, but it is extended by Collection interface to give the collections iterable functionality.  
 
 The different components of the above diagram are:
-### Iterable<E> I/F:
+## Iterable<E> I/F:
 - This interface is part of the `java.lang` package.  
 - This interface is not part of the collection framework.  
 - This is extended by Collection interface to give the collections iterable functionality.  
@@ -630,14 +605,14 @@ The different components of the above diagram are:
 - This Iterator is nothing but cursor which will allow us to iterate over the elements of the collection.  
 - This can be replaced by for-each loop, but this is a safer and more elegant approach than a for-each loop.  
 
-### Collection<E> I/F:
+## Collection<E> I/F:
 - Collection interface doesn't have any concrete implementation of the methods that is listed in it.  
 - The other interfaces/classes which extend/implement this will take care of the implementation on their own, as different classes will have different methods of implementing these operations on their own classes.  
 - This is a super interface of `Set<E>`, `List<E>` and `Queue<E>`.  
 - There is no concrete implementing class of Collection interface.  
 - It is not required, but if really necessary, you can also extend/implement this and build your own collection.  
 - Some of the methods of Collection interface are:
-	1. `add(E e)`: 
+	1. `boolean add(E e)`: 
 		- This will add the reference of the element given in the parameter list.  
 		- It adds a single element at a time.  
 		- It returns a boolean value- which is the status of the insertion operation.  
@@ -645,70 +620,80 @@ The different components of the above diagram are:
 
 			![image](./additional_resources/collection_add_method.png)
 			</details>
-	2. `addAll(Collection<? extends E> c)`:
+			
+	2. `boolean addAll(Collection<? extends E> c)`:
 		- This will add all the references of the collection given in the parameter list to the collection which invokes this method.  
 		- This returns a boolean value- which is the status of the insertion operation.  
 		- <details><summary>More details</summary>
 
 			![image](./additional_resources/collection_addAll_method.png)
 			</details>
-	3. `clear()`:
+
+	3. `void clear()`:
 		
 		- This will remove all of the elements from this collection (optional operation).
-	4. `contains(Object o)`:
+
+	4. `boolean contains(Object o)`:
 		- Returns true if this collection contains the specified element.  
 		- More formally, returns true if and only if this collection contains at least one element e such that `(o==null ? e==null : o.equals(e)).`  
 	    - <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_contains_method.png)
 			</details>
-	5. `containsAll(Collection<?> c)`:
+
+	5. `boolean containsAll(Collection<?> c)`:
 		
 		- Returns true if this collection contains all of the elements in the specified collection.  
-	6. `equals(Object o)`:
-	- Compares the specified object with this collection for equality.  
+
+	6. `boolean equals(Object o)`:
+		- Compares the specified object with this collection for equality.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_equals_method.png)
 			</details>
+
 	7. `isEmpty()`:
-		
 		- Returns true if this collection contains no elements.
-	8. `remove(Object o)`:
-	- Removes a single instance of the specified element from this collection, if it is present (optional operation).  
+
+	8. `boolean remove(Object o)`:
+		- Removes a single instance of the specified element from this collection, if it is present (optional operation).  
 		- Returns true if an element was removed as a result of this call.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_remove_method.png)
 			</details>
-	9. `removeAll(Collection<?> c)`:
-	- Removes all of this collection's elements that are also contained in the specified collection (optional operation).  
+
+	9. `boolean removeAll(Collection<?> c)`:
+		- Removes all of this collection's elements that are also contained in the specified collection (optional operation).  
 		- Returns true if this collection changed as a result of the call.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_removeAll_method.png)
 			</details>
-	10. `retainAll(Collection<?> c)`:
+
+	10. `boolean retainAll(Collection<?> c)`:
 		- Retains only the elements in this collection that are contained in the specified collection (optional operation).  
 		- Returns true if this collection changed as a result of the call.  
-	11. `size()`:
-		
+
+	11. `int size()`:		
 		- Returns the number(int) of elements/references in this collection.  
-    12. `toArray()`:
+
+    12. `Object[] toArray()`:
 		- Returns an array containing all of the elements in this collection.  
 		- This is a non-generic version of the API.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_toArray_method.png)
 		</details>
-	13. `toArray(T[] t)`:
+
+	13. `<T> T[] toArray(T[] t)`:
 		- Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_toArray_generic_method.png)
 			</details>
 
-### List<E> I/F:
+## List<E> I/F:
 - List represents an ordered collection. It means that it maintains order of insertion.  
 - List supports index based operations.  
 - Allows duplicate elements.  
@@ -718,97 +703,113 @@ The different components of the above diagram are:
 	2. LinkedList  
 	3. Vector  
 - A lot of the APIs are inherited from the collection interface, but it's a good idea to take a look at this in more detail. List specific functionality:
-	1. `boolean Add(E e)`:
+	1. `boolean add(E e)`:
 		- Appends the specified element to the end of this list (optional operation).  
 		- <details><summary>More details</summary>
 
 			![image](./additional_resources/list_add_method.png)
 			</details>
+
 	2. `void add(int index, E element)`:
 		- Inserts the specified element at the specified position in this list (optional operation).  
 		- <details><summary>More details</summary>
 
 			![image](./additional_resources/list_add_index_method.png)
 			</details>
+
 	3. `boolean addAll(Collection<? extends E> c)`:
 		- Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator (optional operation).
 		- <details><summary>More details</summary>
 
 			![image](./additional_resources/list_addAll_method.png)
 			</details>
-	4. `boolean addAll(int index Collection<? extends E> c)`:
+
+	4. `boolean addAll(int index, Collection<? extends E> c)`:
 		- Inserts all of the elements in the specified collection into this list at the specified position (optional operation).  
 		- <details><summary>More details</summary>
 
 			![image](./additional_resources/list_addAll_index_method.png)
 			</details>
+
 	5. `void clear()`:
-		
 		- Removes all of the elements from this list (optional operation).
+
 	6. `boolean contains(Object o)`:
 		- Inherited directly from Collections interface.  
 		- Returns true if this list contains the specified element.  
+
 	7. `boolean contiansAll(Collection<?> c)`:
 		- Inherited directly from Collections interface.  
 		- Returns true if this list contains all of the elements of the specified collection.  
+
 	8. `boolean equals(Object o)`:
-		
 		- Compares the specified object with this list for equality.  
+
 	9. `E get(int index)`:
-	- Returns the element at the specified position in this list.
+		- Returns the element at the specified position in this list.
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/list_get_method.png)
 			</details>
+
 	10. `int indexOf(Object o)`:
-	- Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+		- Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/list_indexOf_method.png)
 			</details>
+
 	11. `boolean isEmpty()`:
-		
 		- Returns true if this list contains no elements.
+
     12. `int lastIndexOf(Object o)`:
 		- Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/list_lastIndexOf_method.png)
 			</details>
+
 	13. `E remove(int index)`:
 		- Removes the element at the specified position in this list (optional operation).
 		- Returns the element that was removed at the index position.
+
 	14. `boolean remove(Object o)`:
 		- Removes the first occurrence of the specified element from this list, if it is present (optional operation).
 		- Returns true if this list contained the specified element.
+
 	15. `boolean removeAll(Collection<?> c)`:
 		- Removes from this list all of its elements that are contained in the specified collection (optional operation).
 		- Returns true if this list changed as a result of the call
+
 	16. `boolean retainAll(Collection<?> c)`:
 		- Retains only the elements in this list that are contained in the specified collection (optional operation).
 		- Returns true if this list changed as a result of the call
+
 	17. `E set(int index, E element)`:
 		- Replaces the element at the specified position in this list with the specified element (optional operation).
 		- Returns the element previously at the specified position
+
 	18. `int size()`:
-		
 		- Returns the number(int) of elements/references in this collection. 
+
     19. `Object[] toArray()`:
 		- Returns an array containing all of the elements in this collection.  
 		- This is a non-generic version of the API.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_toArray_method.png)
 		</details>
+
 	20. `<T> T[] toArray(T[] t)`:
 		- Returns an array containing all of the elements in this collection; the runtime type of the returned array is that of the specified array.  
 		- <details><summary>More details</summary>
-	
+
 			![image](./additional_resources/collection_toArray_generic_method.png)
 			</details>
 
 __NOTE:__ A for-each loop can be attached to all the iterable type of collections, thus stating that we can attach a for-each to Arraylist as well.  
-#### ArrayList:
+
+## ArrayList:
 - Arraylist is a List interface implementing class.  
 - Internally marked as a growable array.  
 - Two fields are associated with Arraylist: size and capacity.  
@@ -843,7 +844,9 @@ Program showing how to use an Arraylist:
 ```java
 import java.util.ArrayList;
 class TestArrayList {
+
 	public static void main(String[] args) {
+
 		ArrayList<Integer> arr = new ArrayList<Integer>(10);
 		
 		// Populating the arraylist
@@ -860,6 +863,20 @@ class TestArrayList {
 		System.out.println(arr);
 	}
 }
+```
+
+```output
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 __NOTE:__ When creating an ArrayList from an array using `Arrays.asList()`, it creates an immutalbe list. And when performing any structural changes to the list like removing and adding using `remove()` or `add()`, it'll not show compiler array, but will give runtime exceptions.  
