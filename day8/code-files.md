@@ -12,3 +12,10 @@
     - validateDate() - the age should be more than 18 years of age
     - validateAccountType() - the account type should be one of the account types listed above
 - Create a tester class to create a new account.
+
+# Assignment:
+Continue with Day 7 Customer class , ValidationRules & custom exception.
+Write a Tester for customer registration
+I/P --email , password , reg amount & reg date.
+O/P -- Success mesg or error message via catch block.
+(In case of no validation errs , add customer info to the suitable ArrayList)
