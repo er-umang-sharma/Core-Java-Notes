@@ -448,6 +448,13 @@ java.lang.String = Generics Programming
 java.lang.Double = 1.0
 ```
 
+
+__NOTE:__ Generics methods cannot work with generic type variable arguments. It shows this warning:
+```bash
+warning: [unchecked] Possible heap pollution from parameterized vararg type T
+```  
+To overcome this, we have to use an annotation- `@SafeVarargs`, which will help supress this warning.
+
 ## Generics work only with Reference Types:
 When we declare an instance of generic type, the type argument passed to the type parameter must be a reference type. We cannot use primitive data types like int,char...  
 `Test<int> obj = new Test<int>(20);`  
