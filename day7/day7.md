@@ -662,6 +662,7 @@ class AnonymousDemo
 	}
 }
 ```
+__NOTE:__ The name of the anonymous inner class is given by the compiler and the value of that is: `<Fully Qualified class name>.Outerclass$1`.  
 __Types of anonymous inner class:__ Based on declaration and behavior, there are 3 types of anonymous Inner classes:
 
 1. __Anonymous Inner class that extends a class:__ We can have an anonymous inner class that extends a class.For example, we know that we can create a thread by extending a Thread class. Suppose we need an immediate thread but we don’t want to create a class that extend Thread class all the time. By the help of this type of Anonymous Inner class we can define a ready thread as follows:

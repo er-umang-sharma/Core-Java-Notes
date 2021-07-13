@@ -2,7 +2,7 @@ package com.app.core;
 
 import java.util.Date;
 
-public class BankAccount {
+public class BankAccount implements Comparable<BankAccount> {
 
     private int accountId;
     private String name;
@@ -27,12 +27,38 @@ public class BankAccount {
         this.accountType = accountType;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof BankAccount)) return false;
         BankAccount account = (BankAccount) o;
         return accountId == account.accountId;
+    }
+
+    @Override
+    public int compareTo(BankAccount bankAccount) {
+        if (this == bankAccount) return 0;
+        if (accountId > bankAccount.accountId)
+            return 1;
+        else if (accountId < bankAccount.accountId)
+            return -1;
+        return 0;
     }
 
     @Override
