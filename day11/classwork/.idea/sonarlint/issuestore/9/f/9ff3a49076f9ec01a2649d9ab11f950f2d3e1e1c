@@ -1,0 +1,58 @@
+
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 47 to the 15 allowed.(Çµí‘
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Îıà—ÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÿÿßñ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(·œÀ¹ùÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ßãÛø
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ñ—¥Ä
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¸æ˜ôşÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(êçßóıÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(éõî¬
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(éß£öøÿÿÿÿ
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(…òïüÿÿÿÿ
+N	java:S106""9Replace this use of System.out or System.err by a logger.(ğÕ•‹
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(ç‘ë®üÿÿÿÿ
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ïÚâÀşÿÿÿÿ
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(ç‘ë®üÿÿÿÿ
+M	java:S106'"9Replace this use of System.out or System.err by a logger.(È»ç{
+M	java:S106*"9Replace this use of System.out or System.err by a logger.(ãİğ	
+N	java:S106+"9Replace this use of System.out or System.err by a logger.(Œ™è‡
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(Œê¨¡
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(®……Äøÿÿÿÿ
+N	java:S1063"9Replace this use of System.out or System.err by a logger.(›œ­
+S	java:S1068"9Replace this use of System.out or System.err by a logger.(Û²ïÓıÿÿÿÿ
+N	java:S106<"9Replace this use of System.out or System.err by a logger.(´Ùõ¥
+J
+java:S2864="4Iterate over the "entrySet" instead of the "keySet".(Ú‰±
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(˜ÍÌëıÿÿÿÿ
+S	java:S106B"9Replace this use of System.out or System.err by a logger.(´ö»”üÿÿÿÿ
+N	java:S106D"9Replace this use of System.out or System.err by a logger.(ê¯ïù
+S	java:S106H"9Replace this use of System.out or System.err by a logger.(¾Ğşÿÿÿÿ
+N	java:S106L"9Replace this use of System.out or System.err by a logger.(›¡Í·
+N	java:S106P"9Replace this use of System.out or System.err by a logger.(õ°Ôê
+N	java:S106V"9Replace this use of System.out or System.err by a logger.(úÇ¤Å
+S	java:S106Z"9Replace this use of System.out or System.err by a logger.(Ù—Æ¦ÿÿÿÿÿ
+N	java:S106^"9Replace this use of System.out or System.err by a logger.(ıäÚ›
+N	java:S106`"9Replace this use of System.out or System.err by a logger.(¡¢ç¥
+S	java:S106c"9Replace this use of System.out or System.err by a logger.(¶º¨•ùÿÿÿÿ
+N	java:S106h"9Replace this use of System.out or System.err by a logger.(š˜öš
+S	java:S106p"9Replace this use of System.out or System.err by a logger.(§ïâúÿÿÿÿ
+S	java:S106v"9Replace this use of System.out or System.err by a logger.(š¾¢ ÿÿÿÿÿ
+M	java:S106x"9Replace this use of System.out or System.err by a logger.(ß–œ[
+T	java:S106„"9Replace this use of System.out or System.err by a logger.(ĞÖ¡¡ıÿÿÿÿ
+N	java:S106†"9Replace this use of System.out or System.err by a logger.(ß–œ[
+E
+java:S1905")Remove this unnecessary cast to "Double".(½ƒµæùÿÿÿÿ
+O	java:S106’"9Replace this use of System.out or System.err by a logger.(ãôâ¥
+N	java:S106”"9Replace this use of System.out or System.err by a logger.(ß–œ[
+T	java:S106˜"9Replace this use of System.out or System.err by a logger.(Ó²òÿÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(Âÿœ«üÿÿÿÿ
+O	java:S106 "9Replace this use of System.out or System.err by a logger.(¤¹¹
+O	java:S106£"9Replace this use of System.out or System.err by a logger.(èøŞé
+T
+java:S1128"2Remove this unused import 'utils.CollectionUtils'.(ïÃÀßùÿÿÿÿ8àßª«/
+>
+java:S1604}"(Make this anonymous inner class a lambda(Ïºæ×
+?
+java:S1604Œ"(Make this anonymous inner class a lambda(Ú¡Û—

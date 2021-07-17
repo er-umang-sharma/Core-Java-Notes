@@ -22,3 +22,7 @@ The MENU for the program:
  -------------------------------
 
 ## Assignment
+
+Copy Customer class(remove equals,Comparable,compareTo & overloaded constructor) , same ValidationRules. Modify CollectionUtils to return suitable map.
+
+Write a Tester to Solve Day 10 objectives using Map API (Hint --HashMap/TreeMap or Collection view of a map)

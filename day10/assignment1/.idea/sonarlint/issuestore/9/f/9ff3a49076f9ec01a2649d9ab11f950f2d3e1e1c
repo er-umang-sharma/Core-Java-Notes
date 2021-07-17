@@ -1,0 +1,99 @@
+
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(Çµí‘
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ó 
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ëõê¥ùÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(üê ¨
+N	java:S106"9Replace this use of System.out or System.err by a logger.(À÷ˆò
+S	java:S106"9Replace this use of System.out or System.err by a logger.(àš´ûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÿ¸§ÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(üï§†úÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¶æ§¶
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÆƒÂ™
+S	java:S106"9Replace this use of System.out or System.err by a logger.(’Å¹”ùÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ëüù
+M	java:S106"9Replace this use of System.out or System.err by a logger.(Ù©Îj
+N	java:S106 "9Replace this use of System.out or System.err by a logger.(…­ í
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(¤³‰¹ÿÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(Ç‡ó“ûÿÿÿÿ
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(Ïíõšûÿÿÿÿ
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ïÚâÀşÿÿÿÿ
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(Ïíõšûÿÿÿÿ
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(±™Ãíøÿÿÿÿ
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(¿ïŸ½şÿÿÿÿ
+S	java:S106-"9Replace this use of System.out or System.err by a logger.(ÅœÓøúÿÿÿÿ
+S	java:S1064"9Replace this use of System.out or System.err by a logger.(ıêÓ˜úÿÿÿÿ
+M	java:S1067"9Replace this use of System.out or System.err by a logger.(å—Õ'
+N	java:S106;"9Replace this use of System.out or System.err by a logger.(Š‚”
+N	java:S106="9Replace this use of System.out or System.err by a logger.(…¦«
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(‚÷Åı
+S	java:S106D"9Replace this use of System.out or System.err by a logger.(ıêÓ˜úÿÿÿÿ
+S	java:S106G"9Replace this use of System.out or System.err by a logger.(œô®™şÿÿÿÿ
+S	java:S106K"9Replace this use of System.out or System.err by a logger.(Ë¤ûøÿÿÿÿ
+S	java:S106M"9Replace this use of System.out or System.err by a logger.(å¼«Ãûÿÿÿÿ
+M	java:S106O"9Replace this use of System.out or System.err by a logger.(èê•V
+S	java:S106S"9Replace this use of System.out or System.err by a logger.(ÂÔíèøÿÿÿÿ
+S	java:S106W"9Replace this use of System.out or System.err by a logger.(ıêÓ˜úÿÿÿÿ
+M	java:S106Z"9Replace this use of System.out or System.err by a logger.(å—Õ'
+N	java:S106^"9Replace this use of System.out or System.err by a logger.(Š‚”
+S	java:S106`"9Replace this use of System.out or System.err by a logger.(Ë¢®èùÿÿÿÿ
+N	java:S106c"9Replace this use of System.out or System.err by a logger.(‚÷Åı
+N	java:S106g"9Replace this use of System.out or System.err by a logger.(ãµª
+N	java:S106i"9Replace this use of System.out or System.err by a logger.(û¸÷”
+N	java:S106l"9Replace this use of System.out or System.err by a logger.(Áß‡Ü
+S	java:S106q"9Replace this use of System.out or System.err by a logger.(ï±‡•úÿÿÿÿ
+S	java:S106s"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+N	java:S106x"9Replace this use of System.out or System.err by a logger.(öà²›
+S	java:S106"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+T	java:S106„"9Replace this use of System.out or System.err by a logger.(Ê…İæşÿÿÿÿ
+@
+java:S1905ˆ")Remove this unnecessary cast to "Double".(Ñ¬úé
+T	java:S106‹"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(èåœàúÿÿÿÿ
+@
+java:S1905•")Remove this unnecessary cast to "Double".(«í¥Ç
+F
+java:S2200—"/Only the sign of the result should be examined.(°¾Üà
+F
+java:S2200—"/Only the sign of the result should be examined.(°¾Üà
+T	java:S106œ"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+O	java:S106¡"9Replace this use of System.out or System.err by a logger.(£¤¤ÿ
+T	java:S106¦"9Replace this use of System.out or System.err by a logger.(ä¿õ‡øÿÿÿÿ
+T	java:S106­"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+O	java:S106²"9Replace this use of System.out or System.err by a logger.(öà²›
+T	java:S106¹"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+T	java:S106¾"9Replace this use of System.out or System.err by a logger.(Ê…İæşÿÿÿÿ
+@
+java:S1905Â")Remove this unnecessary cast to "Double".(ÃË–ò
+T	java:S106Å"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+T	java:S106Ê"9Replace this use of System.out or System.err by a logger.(èåœàúÿÿÿÿ
+@
+java:S1905Ï")Remove this unnecessary cast to "Double".(«í¥Ç
+F
+java:S2200Ñ"/Only the sign of the result should be examined.(°¾Üà
+F
+java:S2200Ñ"/Only the sign of the result should be examined.(°¾Üà
+T	java:S106Ö"9Replace this use of System.out or System.err by a logger.(’Ö‹Çùÿÿÿÿ
+T	java:S106ß"9Replace this use of System.out or System.err by a logger.(÷ª¥™ûÿÿÿÿ
+N	java:S106ã"9Replace this use of System.out or System.err by a logger.(ÌÊŸw
+O	java:S106î"9Replace this use of System.out or System.err by a logger.(Áß‡Ü
+c
+java:S11924"HDefine a constant instead of duplicating this literal "EMAIL: " 3 times.(ıêÓ˜úÿÿÿÿ
+h
+java:S1192s"MDefine a constant instead of duplicating this literal "Sorted list:" 8 times.(’Ö‹Çùÿÿÿÿ
+P
+java:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+=
+java:S1604y"(Make this anonymous inner class a lambda(ü™úK
+>
+java:S1604…"(Make this anonymous inner class a lambda(ü™úK
+>
+java:S1604‘"(Make this anonymous inner class a lambda(ü™úK
+>
+java:S1604§"(Make this anonymous inner class a lambda(ü™úK
+>
+java:S1604³"(Make this anonymous inner class a lambda(ü™úK
+>
+java:S1604¿"(Make this anonymous inner class a lambda(ü™úK
+>
+java:S1604Ë"(Make this anonymous inner class a lambda(ü™úK
