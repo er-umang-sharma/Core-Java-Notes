@@ -2,6 +2,7 @@
 
 - [Type erasure with Generics](#type_erasure_with_generics)
 - [Java 8 Features](#java_8_features)
+- [Java I/O](#java_io)
 
 ## Type erasure with generics
 
@@ -589,3 +590,261 @@ l1.forEach(a -> System.out.println(a));
 ```
 
 __NOTE:__ There is a special method `removeIf()` in Collection interface to remove while iterating the Collection because you cannot remove elements while iterating over a Collection using for-each loop or index based for loop because it'll give `java.lang.ConcurrentModificationException` since for-each itself is an implicit iterator and when removing we're structurally modifying the Collection.
+
+### Another Important Interface used in Map: `java.util.function.BiConsumer`
+
+`java.util.function.BiConsumer` interface is a functional interface which is similar to that of `java.util.function.Consumer`, but Consumer only accepts one argument, whereas BiConsumer accepts two arguments, which will primarily be used to perform any operation to override the functional method of `void accept()` method.
+
+The Map interface implements a forEach method which takes an instance of BiConsumer interface:
+
+```java
+default void forEach(BiConsumer<? super K,? super V> action);
+```
+
+The usage of accept method for BiConsumer interface, where we're providing the action upon the contents of Map:
+
+```java
+// Populating the Map
+Map<Integer,BankAccount> hm = populateMap();
+
+// Displaying entries(k & v) via Map's internal iteration -> forEach
+System.out.println("Displaying the contents of the Map using anonymous inner class:");
+hm.forEach(new BiConsumer<Integer,BankAccount>() {
+    @Override
+    public void accept(Integer id, BankAccount a) {
+        System.out.printf("ID : %d Acct Details %s %n",id,a);
+    }
+});
+
+// The above piece of code can also be implemented using a lambda expression:
+System.out.println("Displaying the contents of the Map using lambda:");
+hm.forEach((k,v)->System.out.println(k+" "+v));
+```
+
+### Difference between Lambda Expression and Anonymous class
+
+1. One key difference between using Anonymous class and Lambda expression is the use of `this` keyword.
+
+    For anonymous class `this` keyword resolves to anonymous class, whereas for lambda expression `this` keyword resolves to enclosing class where lambda is written.
+
+2. Another difference between lambda expression and anonymous class is in the way these two are compiled.
+
+    Java compiler compiles lambda expressions and convert them into private method of the class.
+
+## Java I/O
+
+<a name='java_io'></a>
+
+For handling any Input Output operations, java has two packages to handle this: `java.io` & `java.nio`. Here we'll be using `java.io` package.
+
+Some of the examples of Java IO we have been using are `System.in` for standard input stream from console and `System.out` for standard output streams to console.
+
+Java can read and write to & from either character or binary pipes. Pipe is a virtual data pipe, which can exist between two concurrent processes or two concurrent threads. And the data exchange between two threads- consumer and producer threads is carried out by using these virtual binary pipes.
+
+User of pipes: Sometimes we don't want to save the data in a persistent data store like databases, but is only used for transit, in that case we use pipes.
+
+__NOTE:__ Java streams(`java.util.stream` package) and File handling streams should not be confused as they are two different things altogether.
+
+Java IO Steams can be attached to a lot of sources- HTTP programming(TCP Programming), where the client will make an http request and a socket connection will be established on both the ends and the data will be sent via this socket.
+
+__Difference between I/P Stream and O/P Stream:__
+
+If you want to read the data from any data source, be it database, system console, file, etc., then we have to take input type of I/O Stream.
+
+If you want to write the data to any of the data sink, we have to take the output type of I/O Stream. We use this mainly to make the data persistent, so that the data is not lost when the program execution ends.
+
+The different types of devices we can handle using Java I/O:
+![image](./additional_resources/devices_overview.png)
+
+The classes we'll use are in the package `java.io`.
+
+__Need for using Buffer:__
+
+- When reading/writing a large data file, we need to use a buffer, because the entire file cannot be read into/written to the memory in one go.
+- The reading of files from a buffer is a lot faster compared to reading it from a device, because each device has a different interface and may have read or write speed mismatch issues.
+
+__Conversion Stream:__ When communicating with different devices we need to send binary data, as those devices work on binary data, which is hard to work with for us. For that there are some conversion streams which will do this conversion from/to binary data.
+
+### Java I/O Overview
+
+![image](./additional_resources/java_io_classes_overview.png)
+
+__NOTE:__ Any time, for the read operations the I/O APIs are blocking I/O, which means they will not proceed unless we supply the input, may that be from the console or files or socket programming.
+
+### Types of Streams:
+
+![image](./additional_resources/types_of_streams.png)
+
+#### File Streams
+
+__Description of FileInputStream:__ _java.io.FileInputStream_  
+    Binary i/p stream connected to file device(bin/char) -> to read data.
+
+__Description of FileOutputStream:__ _java.io.FileOutputStream_  
+    Binary o/p stream connected to file device(bin/char) -> to write data.
+
+__Description of FileReader:__ _java.io.FileReader_  
+    Character i/p stream connected to file device(char) -> to read data.
+
+__Description of FileWriter:__ _java.io.FileWriter_  
+    Chatacter o/p stream connected to file device(char) -> to write data.
+
+__NOTE:__ The above classes/streams are Node Streams, as they are handling or working with the nodes/data sources directly and we don't have to do anything ourselves. These are un-buffered streams.
+
+__NOTE:__ Similar to that of FileInputStream, FileOutputStream, FileReader & FileWriter there are other Node Streams:
+
+#### Piped Streams
+
+This node stream is used to transfer data using streams between two threads using a pipe.
+
+- Piped Input Stream
+
+![image](./additional_resources/piped_input_stream_constructor.png)
+
+- Piped Output Stream
+
+![image](./additional_resources/piped_output_stream_constructor.png)
+
+- Piped Reader
+
+![image](./additional_resources/piped_reader_constructor.png)
+
+- Piped Writer
+
+![image](./additional_resources/piped_writer_constructor.png)
+
+#### Buffered Streams
+
+This stream is used to capture data from a node stream in a buffer. So, in constructors we have any node streams, for example file streams, piped streams, etc.
+
+- Buffered Input Stream
+
+![image](./additional_resources/buffered_input_stream_constructor_info.png)
+
+- Buffered Output Stream
+
+![image](./additional_resources/buffered_output_stream_constructor_info.png)
+
+- Buffered Reader
+
+![image](./additional_resources/buffered_reader_constructor_info.png)
+
+__NOTE:__ Important API of Buffered Reader: `public String readLine() throws IOException`. More info about that:
+
+![image](./additional_resources/buffered_reader_readline_info.png)
+
+Here it returns null at the end of the stream, be it pipe stream, file stream or any other stream connected to the buffer stream.
+
+- Buffered Writer
+
+![image](./additional_resources/buffered_writer_constructor_info.png)
+
+#### Data Streams
+
+- Data Input Stream
+- Data Output Stream
+- Data Reader
+- Data Writer
+
+### Attaching Streams to Java Application
+
+The basics of how streams are attached to a Java application is as belows:
+
+![image](./additional_resources/streams_basics.png)
+
+### Chaining of Streams
+
+The way to read data from a text file into a Java Application is to use something called Chaining of Streams. Chaining of Streams means we're attaching the output of one stream to the input of another stream as it's input, sort of like a chain. The way to do that is:
+
+![image](./additional_resources/chaining_of_streams.png)
+
+We're using FileReader and not FileStream is because we're working with character data and Reader and Writer are better to work with char data. To implement this in your program, the code to that is:
+
+```java
+package test;
+
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+
+class TestFileStreams {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner sc = new Scanner(System.in);
+        try {
+            System.out.print("Enter the file name you want to read the data from:");
+            String fileName = sc.nextLine();
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            String str = null;
+
+            System.out.println("The contents of the file are:");
+            while((str = br.readLine()) != null) {
+
+                /*We're printing the contents of the line read which are found not-null. 
+                It's because, readLine() return null at the end of file, i.e.,
+                it doesn't have more data to read from the file.*/
+                System.out.println(str);
+            }
+
+            System.out.println("End of file reached.");
+        } catch(FileNotFoundException e) {
+            System.out.println("The file given in the path not found.\nPlease check the path again & provide the correct one.");
+        } catch(Exception e) {
+            e.printStackTrace();
+        }finally {
+            // Closign the non-java resources: Streams is one of the non-java resources
+            if (sc != null) {
+                sc.close();
+            }
+            
+            if (br != null) {
+                br.close();
+            }
+        }
+    }
+}
+```
+
+In the above case, we have to use `throws IOException` section at the end of the main method signature or else it'll give a compiler error because the `close()` method can throw an IOException, and since it is a checked exception and has to handled, or passed over to the calling method, we're passing it over to the caller of the main method.
+
+## Try with Resources & Autoclosable Interface
+
+Since Java 1.7, we don't have to close the streams and file handlers manually ourselves as JVM can do this for us. To do this, we use a mechanism called Try with resources. And it's closely associated with an interface called `java.lang.AutoClosable` interface.
+
+### AutoClosable Interface
+
+An object that may hold resources (such as file or socket handles) until it is closed. The close() method of an AutoCloseable object is called automatically when exiting a try-with-resources block for which the object has been declared in the resource specification header. This construction ensures prompt release, avoiding resource exhaustion exceptions and errors that may otherwise occur.
+
+__Method in AutoClosable interface:__
+
+`void close()throws Exception`: Closes this resource, relinquishing any underlying resources. This method is invoked automatically on objects managed by the try-with-resources statement.
+
+The entire streams defination can also be defined in try with resources section as they implement the `java.lang.AutoClosable` interface. The Autoclosable interface allows the try with resources block to close all the resources given in the resources section,and if it throws an Exception, it'll be part of the try block, and thus will be handled as such. Try with resources:
+
+```java
+class TestFileStreams {
+
+    public static void main(String[] args) {
+
+        System.out.print("Enter the file name you want to read the data from:");
+        try(Scanner sc = new Scanner(System.in);
+            BufferedReader br = new BufferedReader(new FileReader(sc.nextLine()))) {
+            String str = null;
+
+            System.out.println("The contents of the file are:");
+            while((str = br.readLine()) != null) {
+                System.out.println(str);
+            }
+
+            System.out.println("End of file reached.");
+        } catch(FileNotFoundException e) {
+            System.out.println("The file given in the path not found.\nPlease check the path again & provide the correct one.");
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
