@@ -37,6 +37,8 @@ public class MyConvertor {
         Customer customer = new Customer(sc.next(), sc.nextDouble(), sdf.parse(sc.next()));
         System.out.println(customer.getName() + "'s registration date is: " + sdf.format(convert(customer, cust -> cust.getRegistrationDate())));
 
+        if (sc != null)
+            sc.close();
     }
 
     public static <F, T> T convert(F from, Convertable<F, T> ref) {
