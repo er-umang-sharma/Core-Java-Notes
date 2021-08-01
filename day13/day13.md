@@ -4,6 +4,7 @@
 
 - [Method reference in Java](#method_reference_in_java)
 - [Java Streams](#java_streams)
+- [Java I/O Streams continued](#java_io_streams)
 
 ## Method reference in Java
 
@@ -444,3 +445,105 @@ Collections are in-memory data structures which hold elements within it. Each el
 The Java 8 Streams- lazily constructed Collections, where the values are computed when user demands for it.
 
 Actual Collections behave absolutely opposite to it and they are set of eagerly computed values (no matter if the user demands for a particular value or not).
+
+## Java I/O Streams continued
+
+<a name='java_io_streams'></a>
+
+In the last section, we have seen how to read data from a file, here we'll look at how to write data to a file.
+
+The basic picture of that will look like this:
+
+![image](./additional_resources/writing_to_file.png)
+
+In this scenario, the data will be stored in the buffer of the BufferWriter class before writing it to a file. But when will it be actually written to the file? So let's look at how/when the buffer is dumped/emptied and the data is written to a file. The triggers are:
+
+1. Buffer is full:
+  When the buffer is full, the buffer will automatically dump all it's data into the file.
+
+2. When we close the handler, i.e. `writer.close();`:
+  When we close the handler to the buffer, JVM'll first dump all the data in the buffer to the file and then close the buffer.
+
+3. Explicitly calling the `flush()` api:
+  But what happens when 1/3rd of the buffer is full, and you want to dump the data into the file or any node server, be it Socket, HTTP node, etc, we'll have to call another method called `flush();`. This will flush all the data present in the buffer into the node stream it's connected to.
+
+Let's look at another writer class called `java.io.PrintWriter`, which does the same job as that of BufferedWriter, and is also a buffered stream in nature, but better to use compared to BufferedWriter.
+
+The only advantage of using `java.io.BufferedWriter` over `java.io.PrintWriter` is that it provides us provision to set the size of the buffer, that PrintWriter doesn't do.
+
+![image](./additional_resources/buffered_writer_constructor.png)
+
+The reason we're using PrintWriter over BufferedWriter is because, in BufferedWriter class, there are only a few write methods:
+
+![image](./additional_resources/bufferedwriter_write_methods.png)
+
+But in case of PrintWriter class, in addition to the above methods, there are a lot more methods, which are the same as PrintStream classes.
+
+Constructor:
+
+![image](./additional_resources/printwriter_constructor.png)
+
+PrintWriter write methods(same as that of BufferedWriter):
+
+![image](./additional_resources/printwriter_write_methods.png)
+
+Additional print methods in PrintWriter class:
+
+![image](./additional_resources/printwriter_print_methods.png)
+
+So, the difference between the two are:
+
+| BufferedWriter | PrintWriter |
+| ----- | ----- |
+| BufferedWriter has a constructor that allows us to set the size of the buffer. | PrintWriter doesn't have any constructor to do that. |
+| API methods are limited to only write methods. | Has API methods similar to that of PrintStream class, i.e, all print, println methods, etc. |
+| Can wrap only character output streams, i.e., only buffering of data is possible by this class. | Can wrap both character as well binary output streams, i.e., buffering as well as the conversion from binary to character and vice versa is possible with PrintWriter class |
+| Doesn't support auto-flushing | Supports auto-flushing |
+
+So, the updated chaining of streams looks something like this:
+
+![image](./additional_resources/chaining_of_output_streams.png)
+
+__NOTE:__ The trigger for auto-flushing in PrintWriter class is a newline character.
+
+The implementation of how to read and write character data to files can be seen from the picture below:
+
+![image](./additional_resources/reading_and_writing_files.png)
+
+The implementation of the above image is in the program:
+
+[TestFileStreams.java](./classwork/src/question1/TestStreams.java)
+
+### `java.io.Scanner` class
+
+Scanner is a class in java.io package that reads character data from any source stream, be it file, console, or any other character based node stream.
+
+The constructors of Scanner class:
+
+![image](./additional_resources/scanner_constructor_info.png)
+
+In the first constructor, we can see that to attach Scanner to a file, we have to use the File class.
+
+#### `java.io.File` class
+
+An abstract representation fo file and directory path names.
+
+Constructors of File class:
+
+![image](./additional_resources/file_class_constructors.png)
+
+The File class contains API which comes in really handy when dealing with files like:
+
+- `public boolean exists()`
+- `public boolean isFile()`
+- `public boolean canRead()`
+- `public boolean canWrite()`
+- `public boolean canExecute()`
+- `public int length()`
+- etc.
+
+To attach a Scanner to a file, it makes sense to only do that when the above API methods return true, like if the file exists(`public boolean exists()`) and if the file is a file(`public boolean isFile()`) and if you have permission to read the file(`public boolean canRead()`).
+
+The scanner class is really useful as we will be using the same methods we've been using since day 1 to read data from any input stream.
+
+1:12:00

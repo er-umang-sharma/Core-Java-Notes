@@ -639,7 +639,7 @@ For handling any Input Output operations, java has two packages to handle this: 
 
 Some of the examples of Java IO we have been using are `System.in` for standard input stream from console and `System.out` for standard output streams to console.
 
-Java can read and write to & from either character or binary pipes. Pipe is a virtual data pipe, which can exist between two concurrent processes or two concurrent threads. And the data exchange between two threads- consumer and producer threads is carried out by using these virtual binary pipes.
+Java can also read and write to & from either character or binary pipes. Pipe is a virtual data pipe, which can exist between two concurrent processes or two concurrent threads. And the data exchange between two threads- consumer and producer threads is carried out by using these virtual binary pipes.
 
 User of pipes: Sometimes we don't want to save the data in a persistent data store like databases, but is only used for transit, in that case we use pipes.
 
@@ -663,7 +663,7 @@ __Need for using Buffer:__
 - When reading/writing a large data file, we need to use a buffer, because the entire file cannot be read into/written to the memory in one go.
 - The reading of files from a buffer is a lot faster compared to reading it from a device, because each device has a different interface and may have read or write speed mismatch issues.
 
-__Conversion Stream:__ When communicating with different devices we need to send binary data, as those devices work on binary data, which is hard to work with for us. For that there are some conversion streams which will do this conversion from/to binary data.
+__Conversion Stream:__ When communicating with different devices we need to send binary data, as those devices work on binary data, which is hard to work with. For this conversion, there are some conversion streams which will do this conversion from/to binary data.
 
 ### Java I/O Overview
 
@@ -754,7 +754,7 @@ The basics of how streams are attached to a Java application is as belows:
 
 ### Chaining of Streams
 
-The way to read data from a text file into a Java Application is to use something called Chaining of Streams. Chaining of Streams means we're attaching the output of one stream to the input of another stream as it's input, sort of like a chain. The way to do that is:
+The way to read data from a text file into a Java Application is to use something called Chaining of Streams. _Chaining of Streams_ means we're attaching the output of one stream to the input of another stream as it's input, sort of like a chain. The way to do that is:
 
 ![image](./additional_resources/chaining_of_streams.png)
 
@@ -793,7 +793,7 @@ class TestFileStreams {
             System.out.println("The file given in the path not found.\nPlease check the path again & provide the correct one.");
         } catch(Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             // Closign the non-java resources: Streams is one of the non-java resources
             if (sc != null) {
                 sc.close();
@@ -807,7 +807,7 @@ class TestFileStreams {
 }
 ```
 
-In the above case, we have to use `throws IOException` section at the end of the main method signature or else it'll give a compiler error because the `close()` method can throw an IOException, and since it is a checked exception and has to handled, or passed over to the calling method, we're passing it over to the caller of the main method.
+In the above case, we have to use `throws IOException` section at the end of the main method signature or else it'll give a compiler error because the `close()` method of `BufferedReader` class can throw an IOException, and since it is a checked exception and has to handled, or passed over to the calling method, we're passing it over to the caller of the main method.
 
 ## Try with Resources & Autoclosable Interface
 
@@ -819,9 +819,9 @@ An object that may hold resources (such as file or socket handles) until it is c
 
 __Method in AutoClosable interface:__
 
-`void close()throws Exception`: Closes this resource, relinquishing any underlying resources. This method is invoked automatically on objects managed by the try-with-resources statement.
+`void close() throws Exception`: Closes this resource, relinquishing any underlying resources. This method is invoked automatically on objects managed by the try-with-resources statement.
 
-The entire streams defination can also be defined in try with resources section as they implement the `java.lang.AutoClosable` interface. The Autoclosable interface allows the try with resources block to close all the resources given in the resources section,and if it throws an Exception, it'll be part of the try block, and thus will be handled as such. Try with resources:
+The entire streams defination can also be defined in try with resources section as they implement the `java.lang.AutoClosable` interface. The Autoclosable interface allows the `try-with-resources` block to close all the resources given in the resources section,and if it throws an Exception, it'll be part of the try block, and thus will be handled as such. Try with resources:
 
 ```java
 class TestFileStreams {
