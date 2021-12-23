@@ -1,4 +1,6 @@
-# Contents
+# Day 1 Notes
+
+## Contents
 
 - [Why Java?](#why_java)
 - [Writing the first Java Program](#how_to_run_java_programs)
