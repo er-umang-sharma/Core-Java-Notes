@@ -546,4 +546,4 @@ To attach a Scanner to a file, it makes sense to only do that when the above API
 
 The scanner class is really useful as we will be using the same methods we've been using since day 1 to read data from any input stream.
 
-1:12:00
+Timestamp at which we're at: 1:12:00
